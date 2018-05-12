@@ -41,10 +41,13 @@ func main() {
 			continue
 		}
 
-		b := int64(val)
+		input := int64(val)
 		x := new(big.Int)
 		go func() {
-			m := tgbotapi.NewMessage(update.Message.Chat.ID, fmt.Sprintf("%s", x.MulRange(1, b).Text(10)))
+			res := new(big.Float)
+			factorial := x.MulRange(1, input)
+			res.SetInt(factorial)
+			m := tgbotapi.NewMessage(update.Message.Chat.ID, fmt.Sprintf("%s", res.Text(byte('e'), 10)))
 			bot.Send(m)
 		}()
 	}

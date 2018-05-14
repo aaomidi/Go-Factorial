@@ -51,7 +51,7 @@ func main() {
 			res := new(big.Float)
 			factorial := x.MulRange(1, input)
 			res.SetInt(factorial)
-			m := tgbotapi.NewMessage(update.Message.Chat.ID, fmt.Sprintf("%d!= %s", input, res.Text(byte('e'), 2)))
+			m := tgbotapi.NewMessage(update.Message.Chat.ID, fmt.Sprintf("%d! = %s", input, res.Text(byte('e'), 2)))
 			bot.Send(m)
 		}()
 	}
